@@ -8,7 +8,7 @@ import com.project.eventsphereBackend.services.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
@@ -25,7 +25,7 @@ public class UserController {
     }
 
     // Get all users
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public List<UserModel> getAllUsers() {
         return userService.getAllUsers();
     }
