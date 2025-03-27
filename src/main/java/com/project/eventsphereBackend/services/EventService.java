@@ -29,9 +29,10 @@ public class EventService {
         return eventRepository.save(eventModel);
     }
 
-    public void deleteEvent(Long eventId) {
+    public String deleteEvent(Long eventId) {
         EventModel eventModel = getEventById(eventId);
         eventRepository.delete(eventModel);
+        return "Event deleted " + eventId + eventRepository.findById(eventId);
     }
 
     public EventModel updateEvent(Long eventId, EventModel newEvent) {

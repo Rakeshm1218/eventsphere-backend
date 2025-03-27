@@ -46,8 +46,5 @@ public class EventModel {
 
     @Column(nullable = false, length = 500)
     private String eventImage;
-//
-//    @ManyToMany
-////    @JoinColumn(name = "user_id", nullable = false) // Foreign key reference
-//    List<UserModel> users;
+
 }

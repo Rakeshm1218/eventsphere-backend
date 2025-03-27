@@ -3,8 +3,6 @@ package com.project.eventsphereBackend.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "reservations")
 @Getter
@@ -18,11 +16,11 @@ public class ReservationModel {
     private Long reservationId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false) // Foreign key from User table
+    @JoinColumn(name = "userId", nullable = false) // Foreign key to User table
     private UserModel user;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", nullable = false) // Foreign key from Event table
+    @JoinColumn(name = "eventId", nullable = false) // Foreign key to Event table
     private EventModel event;
 
     @Column(nullable = false, unique = true)
@@ -33,6 +31,4 @@ public class ReservationModel {
 
     @Column(nullable = false)
     private String paymentType;
-
-
 }

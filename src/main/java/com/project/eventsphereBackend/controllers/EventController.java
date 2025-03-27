@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events") // Base path for event APIs
+@RequestMapping("/events")
+@CrossOrigin(origins = "http://localhost:5173")// Base path for event APIs
 public class EventController {
 
     private final EventService eventService;
@@ -44,7 +45,8 @@ public class EventController {
 
     // Delete an event
     @DeleteMapping("/delete/{eventId}")
-    public void deleteEvent(@PathVariable Long eventId) {
+    public String deleteEvent(@PathVariable Long eventId) {
         eventService.deleteEvent(eventId);
+        return "Event deleted";
     }
 }
