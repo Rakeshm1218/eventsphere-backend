@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
-@CrossOrigin(origins = "http://localhost:5173")// Base path for event APIs
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")// Base path for event APIs
 public class EventController {
 
     private final EventService eventService;
@@ -20,31 +20,31 @@ public class EventController {
     }
 
     // Get all events
-    @GetMapping("/getAll")
+    @GetMapping("/events/getAll")
     public List<EventModel> getAllEvents() {
         return eventService.getAllEvents();
     }
 
     // Get event by ID
-    @GetMapping("/{eventId}")
+    @GetMapping("/events/{eventId}")
     public EventModel getEventById(@PathVariable Long eventId) {
         return eventService.getEventById(eventId);
     }
 
     // Create a new event
-    @PostMapping("/create")
+    @PostMapping("admin/events/create")
     public EventModel createEvent(@RequestBody EventModel eventModel) {
         return eventService.createEvent(eventModel);
     }
 
     // Update an existing event
-    @PutMapping("/update/{eventId}")
+    @PutMapping("admin/events/update/{eventId}")
     public EventModel updateEvent(@PathVariable Long eventId, @RequestBody EventModel eventModel) {
         return eventService.updateEvent(eventId, eventModel);
     }
 
     // Delete an event
-    @DeleteMapping("/delete/{eventId}")
+    @DeleteMapping("admin/events/delete/{eventId}")
     public String deleteEvent(@PathVariable Long eventId) {
         eventService.deleteEvent(eventId);
         return "Event deleted";

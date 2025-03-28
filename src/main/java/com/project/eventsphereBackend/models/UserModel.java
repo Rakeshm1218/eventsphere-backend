@@ -16,10 +16,13 @@ public class UserModel {
     private Long userId;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    public String username;
+
+    @Column(nullable = false,unique = true)
+    public String email;
 
     @Column(nullable = false)
-    private String password;
+    public String password;
 
     @Column(nullable = false)
     private Boolean isAdmin;
